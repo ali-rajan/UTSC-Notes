@@ -25,5 +25,7 @@ The following LaTeX packages used:
 - `fancyhdr` &mdash; page headers
 - `hyperref` &mdash; hyperlinks in the table of contents and theorem/definition citations
 - `graphicx` &mdash; images
+- `algpseudocode` &mdash; pseudocode
+- `tikz` &mdash; diagrams for finite state automata
 
 Various other packages such as `titlesec`, `parskip`, and `enumitem` were also used to tweak minor formatting options.
