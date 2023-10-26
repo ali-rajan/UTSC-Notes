@@ -2,11 +2,10 @@
 
 This is a repository of my course notes, created using LaTeX.
 
-Note that the documents have functional cross-referencing with hyperlinks citing theorems and facts (GitHub's default
-PDF viewer may not support this; you might have to download the files and use a different PDF viewer for clickable
-hyperlinks).
+The documents have functional cross-referencing with links citing theorems and facts (GitHub's default
+PDF viewer may not support this; you might have to download the files and use a different PDF viewer for clickable links).
 
-There is also a fact list after the table of contents in each document (also with working hyperlinks).
+There is also a fact list after the table of contents in each document (also with working links).
 
 ## LaTeX Configuration and Packages
 
@@ -23,7 +22,7 @@ The following LaTeX packages used:
 - `cleveref` &mdash; enhanced cross-referencing (with definitions, theorems, etc.)
 - `tcolorbox` &mdash; framed boxes for theorem-like environments
 - `fancyhdr` &mdash; page headers
-- `hyperref` &mdash; hyperlinks in the table of contents and theorem/definition citations
+- `hyperref` &mdash; links in the table of contents and theorem/definition citations
 - `graphicx` &mdash; images
 - `algpseudocode` &mdash; pseudocode for algorithms
 - `tikz` &mdash; diagrams for finite state automata
