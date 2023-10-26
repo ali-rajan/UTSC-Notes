@@ -8,9 +8,15 @@ hyperlinks).
 
 There is also a fact list after the table of contents in each document (also with working hyperlinks).
 
-## LaTeX Packages Used
+## LaTeX Configuration and Packages
 
-Here are the packages used:
+The notes were made using the [MiKTeX-pdfTeX 4.11 (MiKTeX 22.10) TeX distribution](https://miktex.org/). VSCode was
+used with the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension
+(more information on
+[setting this up in VSCode](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) can be found
+in its [wiki](https://github.com/James-Yu/LaTeX-Workshop/wiki)).
+
+The following LaTeX packages used:
 
 - `amsmath`, `amssymb`, `commath`, and `mathtools` &mdash; basic math symbols
 - `derivative` &mdash; derivative and differential symbols
