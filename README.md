@@ -12,8 +12,7 @@ There is also a fact list after the table of contents in each document (also wit
 
 The notes were made using the [MiKTeX-pdfTeX 4.11 (MiKTeX 22.10) TeX distribution](https://miktex.org/). VSCode was
 used with the [LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) extension
-(more information on
-[setting this up in VSCode](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop) can be found
+(more information on [setting this up in VSCode](https://github.com/James-Yu/LaTeX-Workshop/wiki/Install) can be found
 in its [wiki](https://github.com/James-Yu/LaTeX-Workshop/wiki)).
 
 The following LaTeX packages used:
