@@ -1,0 +1,175 @@
+% LaTeX math notes template
+% Author: Ali Rajan
+
+\usepackage[letterpaper, margin=0.5in, top=0.25in, includehead]{geometry}
+\usepackage{amsmath}                                    % Standard math package
+\usepackage{amssymb}                                    % Math symbols
+\usepackage{titlesec}                                   % Custom title formatting and options
+\usepackage{parskip}                                    % Spacing options
+\usepackage{tocloft}                                    % Table of contents formatting
+\usepackage{setspace}                                   % Vertical spacing for the table of contents and fact list
+\usepackage{enumitem}                                   % enumerate and itemize list formatting and options
+\usepackage{fancyhdr}                                   % Headers and footers
+\usepackage[linktoc=all]{hyperref}                      % Clickable hyperlinks for table of contents and theorems
+\usepackage[nameinlink]{cleveref}                       % Advanced theorem referencing
+\usepackage[amsmath, hyperref, thmmarks]{ntheorem}      % Enhanced theorem environments
+\usepackage[most]{tcolorbox}                            % Fancy theorem boxes
+% Packages used in the sections
+\usepackage{commath}                                    % More math symbols/operators
+\usepackage{pifont}                                     % Custom bullet symbols
+% \usepackage{mathtools}                                % Additional
+% \usepackage{graphicx}
+\usepackage{xcolor}                                     % Setting text colour
+\usepackage{etoolbox}                                   % For the \AtBeginEnvironment macro used
+
+% General settings
+\hypersetup{hidelinks}
+\titleformat{\section}{\LARGE \bfseries}{Chapter \thesection}{1em}{}
+\titleformat{\subsection}{\Large \bfseries}{\thesubsection}{1em}{}
+\renewcommand{\cfttoctitlefont}{\LARGE \bfseries}
+\titlespacing{\section}{0em}{10ex}{5ex}
+\titlespacing{\subsection}{0em}{5ex}{3ex}
+\allowdisplaybreaks[4]
+\raggedbottom
+\AtBeginEnvironment{bmatrix}{\everymath{\displaystyle}}
+\AtBeginEnvironment{vmatrix}{\everymath{\displaystyle}}
+\renewcommand{\arraystretch}{2}
+
+\renewcommand{\cftsecfont}{\bfseries \Large}
+\renewcommand{\cftsubsecfont}{\large}
+\makeatletter
+\renewcommand*\l@tcolorbox{\@dottedtocline{1}{1.5em}{4em}}  % Indendation options for tcblistof
+\preto\env@matrix{\renewcommand{\arraystretch}{2}}  % Vertical stretch for matrices only
+\makeatother
+
+\renewcommand*{\labelitemi}{\ding{118}}
+\renewcommand*{\labelitemiii}{\textbullet}
+
+% Header options
+\fancyhead[LEO]{Chapter \nouppercase \leftmark}     % Your top-left header text and section numbering here
+\fancyhead[CO]{ABC~123}                             % Your top-center header text for odd pages only
+% ~ is the same as a regular space, but it ensures that ABC and 123 are not split on separate lines
+\fancyhead[REO]{University Name}                    % Your top-right header text
+
+% Custom colours
+\definecolor{myblue}{RGB}{21, 101, 192}
+\definecolor{myred}{RGB}{198, 40, 40}
+\definecolor{mylightblue}{RGB}{80, 140, 208}
+\definecolor{mylightred}{RGB}{212, 94, 94}
+
+% Theorem-like environments
+\tcbuselibrary{theorems}
+% Performs \newtcbtheorem[#1]{#2}{#3}{options}{}, where options created a styled theorem box with label #2, whos
+% colour depends on #4
+\newcommand*{\definestyledtcbtheorem}[4]{
+    \newtcbtheorem[#1]{#2}{#3}
+    {
+        label type=#2,
+        label separator=,
+        % colframe=#4,
+        colback=#4!10,
+        frame hidden,
+        opacityback=0.4,
+        fonttitle=\bfseries,
+        separator sign=\ ---,
+        enhanced,
+        colbacktitle=#4,
+        attach boxed title to top left={xshift=2mm, yshift=-\tcboxedtitleheight/2},
+        top=\tcboxedtitleheight/2,
+        boxed title style={colframe=#4!10},
+        parbox=false
+    }{}
+}
+\definestyledtcbtheorem{number within=section, list inside=facts}{definition}{Definition}{myblue}
+\definestyledtcbtheorem{use counter from=definition, list inside=facts}{axiom}{Axiom}{mylightblue}
+\definestyledtcbtheorem{use counter from=definition, list inside=facts}{lemma}{Lemma}{mylightred}
+\definestyledtcbtheorem{use counter from=definition, list inside=facts}{theorem}{Theorem}{myred}
+\definestyledtcbtheorem{use counter from=definition, list inside=facts}{corollary}{Corollary}{mylightred}
+\newtcbtheorem[use counter from=definition]{example}{Example}
+{
+    label type=example,
+    label separator=,
+    boxrule=0pt,
+    boxsep=0pt,
+    breakable,
+    enhanced jigsaw,
+    opacityback=0,
+    borderline west={2pt}{0pt}{gray},
+    frame hidden,
+    bottomtitle=1mm,
+    theorem hanging indent=0pt,
+    fonttitle=\bfseries,
+    coltitle=black,
+    colbacktitle=white,
+    attach title to upper,%
+    separator sign none,
+    description delimiters parenthesis,
+    description font=\itshape\mdseries,
+    after title=\textmd{:}\ ,%
+    % description font=\mdseries,
+    parbox=false
+}{}
+\newtcbtheorem[no counter]{remark}{Remark:}{
+    boxrule=0pt,
+    boxsep=0pt,
+    breakable,
+    enhanced jigsaw,
+    opacityback=0,
+    frame hidden,
+    borderline horizontal={2pt}{0pt}{myred!25},
+    attach title to upper,
+    fonttitle=\bfseries,
+    coltitle=myred,
+    parbox=false
+}{}
+\theoremstyle{nonumberplain}
+\theoremheaderfont{\scshape}
+\theoremseparator{:}
+\theorembodyfont{\upshape}
+\theoremsymbol{ \ensuremath{\blacksquare}}  % The space ensures that the square isn't too close to any preceding text
+\theorempreskip{2mm}
+\newtheorem{proof}{Proof}
+\crefname{enumi}{}{}
+\creflabelformat{enumi}{#2(#1)#3}
+
+% Environment for questions and answers
+\newenvironment{questionparts}{\begin{enumerate}[label=(\alph*)]}{\end{enumerate}}
+\newenvironment{solutionparts}
+{\begin{enumerate}[label=(\alph*)] \setlength{\leftskip}{-0.4\leftmargin} \setlength{\rightskip}{-0.4\rightmargin}}
+        {\end{enumerate}}
+
+% Commands for math symbols and other macros
+\newcommand*{\sect}{\S}
+\newcommand*{\sects}{\S\S}
+\newcommand*{\pg}{p.~}
+\newcommand*{\pgs}{pp.~}
+\newcommand*{\q}{Q}
+\newcommand*{\aiff}{\; \iff & \;}   % Used in alignat lines of the form \iff && A & = B for proper spacing
+\newcommand*{\aimplies}{\; \implies & \;}   % \implies analog for \aiff
+
+\newcommand*{\vect}[1]{\mathbf{#1}}
+\newcommand*{\field}{\mathbb{F}}
+\newcommand*{\naturals}{\mathbb{N}}
+\newcommand*{\integers}{\mathbb{Z}}
+\newcommand*{\reals}{\mathbb{R}}
+\newcommand*{\complex}{\mathbb{C}}
+\newcommand*{\spn}{\operatorname*{span}}
+\newcommand*{\kernel}{\operatorname*{ker}}
+\newcommand*{\im}{\operatorname*{image}}
+\newcommand*{\trace}{\operatorname*{trace}}
+
+\newcommand*{\realmatrix}[2]{\mathbf{M}_{#1 \times #2} (\reals)}
+\newcommand*{\realpoly}[1]{\mathbf{P}_{#1} (\reals)}
+\newcommand*{\basis}[2][\beta]{\{#1_1, \ldots, #1_#2\}}
+\newcommand*{\innerprod}[2]{\langle #1 \mid #2 \rangle}
+
+% WARNING: exponents occurring right these parentheses/brackets this do not vertically align properly
+\newcommand*{\p}[1]{\mathopen{}\left(#1\right)\mathclose{}}
+\newcommand*{\intervalc}[1]{\left[#1\right]}
+\newcommand*{\intervalo}[1]{\left(#1\right)}
+\newcommand*{\intervalco}[1]{\left[#1\right)}
+\newcommand*{\intervaloc}[1]{\left(#1\right]}
+
+\newcommand*{\centeredimage}[2][0.5]{\begin{center}
+        \includegraphics[scale=#1]{#2}
+    \end{center}}

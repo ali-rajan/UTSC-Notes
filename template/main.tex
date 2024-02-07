@@ -1,0 +1,30 @@
+\documentclass[twoside]{article}
+
+% See the preamble file for all the defined commands; ideally add command definitions there to reduce clutter
+\input{preamble.tex}
+
+\begin{document}
+
+\title{\Huge \bfseries ABC~123 --- Title}
+\author{\large \scshape Author Name}
+\date{\Large \scshape Date/Term and Year}
+\maketitle
+
+Welcome to my \LaTeX\ math notes template! This is a sample for typesetting math notes.
+
+% The table of contents and fact list are both generated automatically as new sections and theorems/definitions are
+% added
+\pagestyle{plain}
+\begin{spacing}{1.25}
+    \tableofcontents
+    \newpage
+    \tcblistof[\section*]{facts}{Fact List}
+\end{spacing}
+\thispagestyle{plain}
+
+\pagestyle{fancy}
+
+\include{chapters/chapter-1.tex}
+\include{chapters/chapter-2.tex}
+
+\end{document}

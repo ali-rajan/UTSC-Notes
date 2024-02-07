@@ -1,0 +1,43 @@
+\section{Basics}
+
+\subsection{Separate Files}
+
+Separating your chapters into separate files and \verb|\include|-ing them in the main file makes your \LaTeX\ code
+cleaner. We create a section and subsections, and these are automatically populated in the table of contents with
+clickable hyperlinks.
+
+Note that the preamble was \verb|\input|ted rather than \verb|\include|d; you can read more about the differences
+\href{https://tex.stackexchange.com/questions/246/when-should-i-use-input-vs-include}{\color{blue}{here}}.
+% We have to specify the text colour here since it is modified elsewhere
+
+\subsection{Some Typesetting}
+
+\emph{Environments} provide certain functionality for typesetting. The syntax is as follows:
+
+\begin{verbatim}
+    \begin{environment}
+        Content in the environment
+    \end{environment}
+\end{verbatim}
+
+Itemized lists can be created as follows:
+
+\begin{itemize}
+    \item Some cool points
+    \item Bullets can be customized using the \verb|enumitem| package
+\end{itemize}
+
+Additionally, numbered lists can be used.
+
+\begin{enumerate}
+    \item Another set of cool statements
+    \item Numbering can also be customized using \verb|enumitem|
+\end{enumerate}
+
+You can use \verb|`| and \verb|'| for single opening and closing quotation marks (respectively), ``like this'' or
+`this'.
+
+To \emph{emphasize} certain text, use \verb|\emph{text}|. This is similar to \verb|\textbf{text}| (bold) and
+\verb|\textit{text}| (italics), though \verb|emph| can be customized to use any specified font.
+
+% TODO: add image example

@@ -1,0 +1,8 @@
+*.aux
+*.log
+*.facts
+*.out
+*.synctex.gz
+*.synctex(busy)
+*.thm
+*.toc

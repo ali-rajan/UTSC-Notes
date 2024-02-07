@@ -1,0 +1,154 @@
+\section{Math Typesetting}
+
+\subsection{Equations}
+
+Math equations can be \emph{inline} such as \(x + 1 = 0\) using \verb|\(expression\)|. It can also be in display
+style, on its own line and centered using \verb|\[expression\]|. This yields
+\[x + 1 = 0\]
+The size and style of certain symbols can vary based on whether inline or display style is being used. For example, a
+summation would be displayed as \(\sum_{i = 1}^{n} a_i\) inline and
+\[\sum_{i = 1}^{n} a_i\]
+in display mode. For limits like the summation limits, we can use \verb|\limits| for inline math to display them as
+\(\sum \limits_{i = 1}^{n} a_i\) or use \verb|\displaystyle| inside the inline math delimiters to get
+\(\displaystyle \sum_{i = 1}^{n} a_i\).
+
+To number equations, use the \verb|equation| environment.
+\begin{equation}
+    x + 1 = 0
+\end{equation}
+Multiple lines of equations can be aligned with \verb|align*| (for unnumbered equations) or \verb|align| (for numbered
+equations). We use \verb|&| to specify an ``anchor'' where the equations will be vertically aligned and \verb|\\| to
+specify where each line ends. Additionally, \verb|\tag{text}| can be used to align text in parentheses on the right
+(e.g. for justifying steps taken and citing theorems). \verb|\tag*{text}| works the same as \verb|\tag{text}|, though
+it does not have parentheses.
+\begin{align*}
+    (x + 1) + (x + 2) + (x + 3)
+     & = x + 1 + x + 2 + x + 3  \tag{by associativity} \\
+     & = x + x + x + 1 + 2 + 3  \tag{by commutativity} \\
+     & = 3x + 6
+\end{align*}
+
+\subsection{Basic Symbols}
+
+Some useful math symbols/operators are as follows.
+
+% TODO: insert \mathcal, \det, and \underbrace
+\begin{center}
+    \begin{tabular}{cc}     % TODO: find an alternative to this quick and dirty fix
+        \begin{tabular}[t]{|l||c|}
+            \hline
+            Command           & Result         \\
+            \hline
+            \verb|\boxplus|   & \(\boxplus\)   \\
+            \verb|\boxdot|    & \(\boxdot\)    \\
+            \verb|\oplus|     & \(\oplus\)     \\
+            \verb|\odot|      & \(\odot\)      \\
+            \verb|\times|     & \(\times\)     \\
+            \verb|\neq|       & \(\neq\)       \\
+            \verb|\leq|       & \(\leq\)       \\
+            \verb|\geq|       & \(\geq\)       \\
+            \verb|\approx|    & \(\approx\)    \\
+            \verb|\to|        & \(\to\)        \\
+            \verb|\implies|   & \(\implies\)   \\
+            \verb|\iff|       & \(\iff\)       \\
+            \verb|\cup|       & \(\cup\)       \\
+            \verb|\cap|       & \(\cap\)       \\
+            \verb|\in|        & \(\in\)        \\
+            \verb|\subset|    & \(\subset\)    \\
+            \verb|\subseteq|  & \(\subseteq\)  \\
+            \verb|\supset|    & \(\supset\)    \\
+            \verb|\supseteq|  & \(\supseteq\)  \\
+            \verb|\subsetneq| & \(\subsetneq\) \\
+            \verb|\supsetneq| & \(\supsetneq\) \\
+            \hline
+        \end{tabular} &
+        \begin{tabular}[t]{|l||c|}
+            \hline
+            Command                                   & Result                      \\
+            \hline
+            \verb|x^2|                                & \(x^2\)                     \\
+            \verb|\frac{p}{q}|                        & \(\frac{p}{q}\)             \\
+            \verb|x^{1 + \frac{2}{3}}|                & \(x^{1 + \frac{2}{3}}\)     \\
+            \verb|x_i|                                & \(x_i\)                     \\
+            \verb|x_{i + 1}^{i + 2}|                  & \(x_{i + 1}^{i + 2}\)       \\
+            \verb|\set{a, b, c}|                      & \(\set{a, b, c}\)           \\
+            \verb|\abs{x}|                            & \(\abs{x}\)                 \\
+            \verb|\field| (custom-defined)            & \(\field\)                  \\
+            \verb|\reals| (custom-defined)            & \(\reals\)                  \\
+            \verb|\complex| (custom-defined)          & \(\complex\)                \\
+            \verb|\vect{v}| (custom-defined)          & \(\vect{v}\)                \\
+            \verb|\realmatrix{n}{k}| (custom-defined) & \(\realmatrix{n}{k}\)       \\
+            \verb|\realpoly{n}| (custom-defined)      & \(\realpoly{n}\)            \\
+            \verb|\spn(S)| (custom-defined)           & \(\spn(S)\)                 \\
+            \verb|\dim(V)|                            & \(\dim(V)\)                 \\
+            \verb|\kernel(T)| (custom-defined)        & \(\kernel(T)\)              \\
+            \verb|\im(T)| (custom-defined)            & \(\im(T)\)                  \\
+            \verb|\sum_{i = 1}^{n} a_i|               & \(\sum_{i = 1}^{n} a_i\)    \\
+            \verb|\prod_{i = 1}^{n} a_i|              & \(\prod_{i = 1}^{n} a_i\)   \\
+            \verb|\bigcup_{i = 1}^{n} S_i|            & \(\bigcup_{i = 1}^{n} S_i\) \\
+            \verb|\bigcap_{i = 1}^{n} S_i|            & \(\bigcap_{i = 1}^{n} S_i\) \\
+            \hline
+        \end{tabular}
+    \end{tabular}
+\end{center}
+
+% TODO: add system of equations example
+% TODO: add matrix example
+
+\subsection{Theorem Environments}
+
+We can create theorems, definitions, axioms, and other custom-defined theorem-like environments. The syntax is
+\begin{verbatim}
+    \begin{environment-name}{Fact Title}{cross-reference-name (optional)}
+        Content
+    \end{environment-name}
+\end{verbatim}
+We have defined \verb|definiton|, \verb|theorem|, \verb|example|, \verb|axiom|, \verb|lemma|, and \verb|corollary| as
+theorem-like environments.
+
+\begin{definition}{Some Object}{}
+    Here, we define some object.
+\end{definition}
+
+\begin{lemma}{Stepping Stone}{lemmasteppingstone}
+    This is a lemma, which will be used later. We have defined \verb|lemmasteppingstone| as the cross-referencing name.
+\end{lemma}
+
+\verb|\cref{cross-referencing-name}| can be used to cite a theorem-like fact. \verb|\Cref| does the same but
+capitalizes the first letter. For example, \verb|\cref{lemmasteppingstone}| results in \cref{lemmasteppingstone}. Note
+that clicking the citation text takes us back to the fact cited.
+
+We also have \verb|remark| and \verb|proof| environments, which must be used without a title and cross-referencing
+name.
+
+\begin{remark}{}{}
+    \Cref{lemmasteppingstone} will prove to be useful in the following theorem.
+\end{remark}
+
+\begin{theorem}{A Significant Result}{theoremsigresult}
+    Here is a significant result.
+\end{theorem}
+
+\begin{proof}{}{}
+    By \cref{lemmasteppingstone}, the result is trivial.
+\end{proof}
+
+Note the automatic placement of a QED square at the end of the proof.
+
+\begin{example}{}{}
+    Some important example here.
+
+    Some work here.
+\end{example}
+
+\begin{theorem}{Another Result of Importance}{theoremanother}
+    Another result.
+\end{theorem}
+
+\begin{remark}{}{}
+    \verb|cref| and \verb|Cref| can be used to cite multiple facts at once. For example, the text
+    ``\cref{theoremsigresult,theoremanother}'' can be produced using \verb|\cref{theoremsigresult,theoremanother}|.
+    \Cref{lemmasteppingstone,theoremanother} is produced by \verb|\Cref{lemmasteppingstone,theoremanother}|.
+\end{remark}
+
+Each of the theorem-like facts are populated in the fact list at the beginning of this document.
